@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/anaSayfaToTahmin">
+
+    <fragment
+        android:id="@+id/anaSayfaToTahmin"
+        android:name="com.hamzaaktay.predictiongame.AnaSayfaFragment"
+        android:label="fragment_ana_sayfa"
+        tools:layout="@layout/fragment_ana_sayfa">
+        <action
+            android:id="@+id/action_anaSayfaFragment_to_tahminFragment"
+            app:destination="@id/tahminToSonuc" />
+    </fragment>
+    <fragment
+        android:id="@+id/profilFragment"
+        android:name="com.hamzaaktay.predictiongame.ProfilFragment"
+        android:label="fragment_profil"
+        tools:layout="@layout/fragment_profil" />
+    <fragment
+        android:id="@+id/tahminToSonuc"
+        android:name="com.hamzaaktay.predictiongame.TahminFragment"
+        android:label="fragment_tahmin"
+        tools:layout="@layout/fragment_tahmin" >
+        <action
+            android:id="@+id/action_tahminFragment_to_sonucFragment"
+            app:destination="@id/sonucFragment"
+            app:popUpTo="@id/tahminToSonuc"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/sonucFragment"
+        android:name="com.hamzaaktay.predictiongame.SonucFragment"
+        android:label="fragment_sonuc"
+        tools:layout="@layout/fragment_sonuc" >
+        <argument
+            android:name="sonuc"
+            app:argType="string" />
+    </fragment>
+</navigation>
